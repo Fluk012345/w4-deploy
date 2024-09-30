@@ -3,7 +3,9 @@ services:
     build:
       context: .
       args:
-        STUDENT_NAME: "Agus Setiawan"
-        STUDENT_NIM: "00000012345"
+        STUDENT_NAME: "Caesar Eka Nathanael"
+        STUDENT_NIM: "0000067638"
     ports:
-      # TODO
+      - "80:3000"
+    environment:
+      NODE_ENV: development

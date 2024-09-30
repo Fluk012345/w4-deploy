@@ -9,3 +9,22 @@ ENV NUXT_STUDENT_NIM ${STUDENT_NIM}
 ### </JANGAN DIGANTI>
 
 # TODO: code disini
+WORKDIR /app
+
+# Install pnpm globally
+RUN npm install -g pnpm
+
+# Copy package and lock file
+COPY package.json pnpm-lock.yaml* ./
+
+# Install dependencies
+RUN pnpm install
+
+# Copy the rest of the application files
+COPY . .
+
+# Build the project
+RUN pnpm build
+EXPOSE 3000
+# Jalankan aplikasi
+CMD ["pnpm","dev"]
